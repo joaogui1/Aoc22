@@ -12,6 +12,6 @@ end
 # Part 2
 p2 = open("input.txt", "r") do io
     lines = readlines(io)
-    groups = [[lines[i], lines[i+1], lines[i+2]] for i in 1:3:length(lines)-2]
+    groups = [[lines[i:i+2]][1] for i in 1:3:length(lines)-2]
     sum(map(prio ∘ first ∘ (gp -> ∩(gp...)), groups))
 end
