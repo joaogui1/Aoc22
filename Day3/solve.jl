@@ -3,7 +3,7 @@ prio(x) = x >= 'a' ? x - 'a' + 1 : x - 'A' + 27
 function f(ln)
     m = length(ln)÷2
     l, r = ln[begin:m], ln[m+1:end]
-    return prio((l ∩ r)[1])
+    return (l ∩ r) |> first |> prio
 end
 p1 = open("input.txt", "r") do io
     io |> readlines |> x -> map(f, x) |> sum
