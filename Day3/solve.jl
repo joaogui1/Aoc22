@@ -1,12 +1,12 @@
 # Part 1
 prio(x) = x >= 'a' ? x - 'a' + 1 : x - 'A' + 27
 function f(ln)
-    l, r = [ln[1+i:length(ln)÷2+i] for i in [0, length(ln)÷2]]
+    m = length(ln)÷2
+    l, r = ln[begin:m], ln[m+1:end]
     return prio((l ∩ r)[1])
 end
 p1 = open("input.txt", "r") do io
-    lines = readlines(io)
-    sum(map(f, lines))
+    io |> readlines |> x -> map(f, x) |> sum
 end
 
 # Part 2
